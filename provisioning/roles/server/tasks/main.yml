@@ -1,0 +1,69 @@
+- name: Run the equivalent of "apt-get update" 
+  ansible.builtin.apt:
+    update_cache: yes
+    
+- name: Install python3 mysql dependency
+  ansible.builtin.apt:
+    name: python3-mysqldb
+    state: present
+
+- name: Install php
+  ansible.builtin.apt:
+      name: php
+      state: present
+      
+- name: Install php-mysql
+  ansible.builtin.apt:
+      name: php-mysql
+      state: present
+
+- name: Install mysql-server
+  ansible.builtin.apt:
+      name: mysql-server
+      state: present
+
+- name: Install apache2
+  ansible.builtin.apt:
+      name: apache2
+      state: present
+
+- name: Copy apache config file 
+  ansible.builtin.copy:
+      src: ../files/hackingTraining.conf
+      dest: /etc/apache2/sites-available/000-default.conf
+      
+- name: Copy apache ports file
+  ansible.builtin.copy:
+      src: ../files/ports.conf
+      dest: /etc/apache2/ports.conf
+
+- name: Copy code files with owner and permissions 
+  ansible.builtin.copy:
+      src: ../files/hackingTraining
+      dest: /var/www/html/
+      owner: root
+      mode: '0644'  
+      
+- name: Copy schema to import DB 
+  ansible.builtin.copy:
+      src: ../files/schema_db.sql
+      dest: /tmp/schema_db.sql
+
+- name: Import database
+  community.mysql.mysql_db:
+    name: hackingTraining
+    state: import
+    target: /tmp/schema_db.sql
+
+- name: Set password database
+  community.mysql.mysql_user:
+    login_user: root
+    login_password: root
+    name: root
+    password: 61WD1B2/ex
+    state: present
+    
+- name: Restart service apache2
+  ansible.builtin.service:
+    name: apache2
+    state: restarted

@@ -1,0 +1,25 @@
+---
+# Installation and configuration of each host
+- name: Configure attacker
+  hosts: attacker
+  become: true
+  roles:
+    - role: attacker
+    - role: kypo-user-access
+      kypo_user_access_username: user
+      kypo_user_access_password: Password123
+      kypo_user_access_sudo: True
+
+- name: Configure server
+  hosts: server
+  become: true
+  roles:
+    - role: server
+      
+- name: Configure victim
+  hosts: victim
+  become: true
+  roles:
+    - role: victim
+
+

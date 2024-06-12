@@ -1,0 +1,12 @@
+[Unit]
+Description=Daemon Victim Bot que simula visitas a la pagina de comentarios tras loguearse
+After=network.target
+
+[Service]
+User=root
+Restart=always
+ExecStart=/usr/bin/python3 /home/ubuntu/victimBot.py
+RuntimeDirectoryMode=0755
+
+[Install]
+WantedBy=multi-user.target

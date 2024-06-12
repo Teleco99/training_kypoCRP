@@ -1,0 +1,43 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 10px;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+header {
+    background-color: #3498db;
+    color: #fff;
+    padding: 16px;
+    text-align: center;
+    font-size: 34px;
+    margin-left: -10px; /* Compensa el margen izquierdo del cuerpo */
+    margin-right: -10px; /* Compensa el margen derecho del cuerpo */
+    margin-top: -10px; /* Compensa el margen arriba del cuerpo */
+}
+
+.right {
+    float: right;
+}
+
+#comment-box {
+    margin-top: 20px;
+}
+
+#comment-form {
+    margin-top: 20px;
+}
+
+#comment-form textarea {
+    width: 100%;
+    height: 100px;
+}
+
+.button-box {
+    margin-top: 10px;
+    padding: 5px 10px;
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
