@@ -19,8 +19,6 @@ Este escenario de Kypo CRP está diseñado para entrenar habilidades de hacking 
 
 - Kypo Cyber Range Platform (CRP)
 - Conocimientos básicos de escaneo de red, fuerza bruta y ataques XSS
-- Herramientas de escaneo como Nmap
-- Herramientas para fuerza bruta como Hydra o Burp Suite
 - Navegador web
 
 ## Objetivos de Aprendizaje
